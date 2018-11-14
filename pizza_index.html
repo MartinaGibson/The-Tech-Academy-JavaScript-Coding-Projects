@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Tina Martini's Pizza | Denver</title>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+		<meta content="width=device-width,initial-scale=1.0" name="viewport">
+		<style>
+		
+		body {
+			
+			background-image: linear-gradient(90deg,rgb(148, 197, 129),rosybrown);
+			text-align: center;
+			display:block;
+			margin: 0 auto;
+		}
+		h1  {
+			color: rosybrown;
+            font: 3em fantasy;
+            font-weight:lighter;
+			text-shadow:4px 3px black;
+            display: inline-block;
+            margin:2px 30px 0px 30px;
+		}       
+		h2 {
+                color:rosybrown;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-shadow: 2px 2px black;
+                font-size: 30px;
+		}
+		p  {
+                color: rgb(30, 75, 36);
+                font: 25px Arial;
+		}
+		h3 {
+            color:rgb(34, 30, 32);
+            font: 25px impact lighter underline;
+            padding-right:20px;
+            margin:10px;
+        }			
+		.menuFace {
+            display:flex;
+            width:800px;
+			height: 800px;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: center;
+		} 
+        .menuForm {
+            display: flex center;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            overflow: auto;
+            background-color:rgb(48, 78, 52);
+            border-top:10px dotted rosybrown;
+			border-left:10px dotted rosybrown;
+            margin:60px;
+            padding:10px 15px;
+            color:rosybrown;
+            max-width: 100%;
+            width: 800px;
+			box-shadow:10px 15px black;
+                
+        }
+        .menu{
+            display: block;
+            justify-items: space-between;
+            margin: 10px;
+            border-top:1px solid black;
+            max-width: 100%;
+			font-size:1em;
+        }	
+		#totalPrice {
+			width:200px;
+			height:190px;
+			margin:0 auto;
+			float:right;
+			font-size:28px;
+			text-align:left;
+			
+		}
+		
+		#showText {
+			width:200px;
+			height:300px;
+			margin:0px auto;
+			float:left;
+			color:rosybrown;
+			font-size:18px;
+			font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			text-align: bottom;
+			
+			
+		}
+		#cart {
+			top:0;
+			margin:0px auto;
+			width:220px;
+			height:300px
+			display: flex;
+            block-size: 400px;
+            margin: 0 auto;
+			padding: 5px;
+            background-color:rgba(30, 75, 36, 0.5);
+			box-shadow:3px 4px black;
+			border-top:4px dotted rosybrown;
+			border-left:6px dotted rosybrown;
+		}
+		#btnOrder {
+			margin:0 auto;
+			width:150px;
+			height:50px;
+            padding:2px;
+            border:7px solid rosybrown;
+            color:rgb(48, 78, 52);
+            cursor:pointer;
+            justify-content: center;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Tina Martini's Pizza | Denver, Colorado</h1>
+				<h2>Seving the Mile High City since 2018</h2>
+					<h3>All pizzas come with 1 meat & 1 veggie topping at now extra charge! Each additional topping there after is $1.00+</h3>
+						<p>Extra Cheese & Cheesy Stuffed Crust are an additional $3.00 each! </p>
+				<br>  
+				<!--Menu Selections-->
+		<div class="menuFace">
+			<form class="menuForm">
+				<div class="menu">
+					<h3>Pick Your Size:</h3>
+					<input class="size" type="radio" name="Size" value="Personal Pizza"> Personal 8" Pizza | $6.00<br>
+					<input class="size" type="radio" name="Size" value="Medium Pizza"> Medium 10" Pizza | $10.00<br>
+					<input class="size" type="radio" name="Size" value="Large Pizza" checked> Large Pizza | $14.00<br>
+					<input class="size" type="radio" name="Size" value="Extra Large Pizza"> Extra Large Pizza | $16.00<br>
+				</div>
+				<div class="menu">
+					<h3>Pick Your Meats:</h3>
+					<input class="meats" type="checkbox" name="Meat" value="Pepperoni"> Pepperoni<br>
+					<input class="meats" type="checkbox" name="Meat" value="Sausage"> Sausage <br>
+					<input class="meats" type="checkbox" name="Meat" value="Canadian Bacon"> Canadian Bacon<br> 
+					<input class="meats" type="checkbox" name="Meat" value="Ground Beef"> Ground Beef<br>
+					<input class="meats" type="checkbox" name="Meat" value="Anchovy"> Anchovy<br>
+					<input class="meats" type="checkbox" name="Meat" value="Chicken"> Chicken<br>
+				</div>
+				<div class="menu">
+					<h3>Pick Your Veggies:</h3>
+					<input class="veggie" type="checkbox" name="Veggie" value="Tomatoes">Tomatoes<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Onions">Onions<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Olives">Olives<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Peppers">Green Peppers<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Mushrooms">Mushrooms<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Pinapple">Pineapple<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Spinach">Spinach<br>
+					<input class="veggie" type="checkbox" name="Veggie" value="Jalapenos">Jalapenos<br>
+					</div>
+					<br>
+
+				<div class="menu">
+					<h3>Pick Your Crust:</h3>
+					<input name="Crust" class="crust" type="radio" checked value="Plain Crust">Plain Crust<br>
+					<input name="Crust" class="crust" type="radio" value="Garlic Buttery Crust">Garlic Buttery Crust<br>
+					<input name="Crust" class="crust" type="radio" value="Cheesy Stuffed Crust">Cheesy Stuffed Crust<br>
+					<input name="Crust" class="crust" type="radio" value="Spicy Crust">Spicy Crust<br>
+					<input name="Crust" class="crust" type="radio" value="House Tossed Crust">House Speciality Tossed Crust<br>
+				</div>
+				<br>
+				<div class="menu">
+					<h3>Pick Your Sauce:</h3>
+					<input name="Sauce" class="sauce" type="radio" checked value=" Red Marinara Sauce">Red Marinara Sauce<br>
+					<input name="Sauce" class="sauce" type="radio" value="White Garlic Sauce">White Garlic Sauce<br>
+					<input name="Sauce" class="sauce" type="radio" value="BBQ Sauce">Spicy Honey BBQ Sauce<br>
+					<input name="Sauce" class="sauce" type="radio" value="No Sauce">No Sauce<br>
+				</div>
+				<div class="menu">
+					<h3>Pick How Much Cheese:</h3>
+					<input name="Cheese" class="cheese" type="radio" checked value="Regular Cheese">Regular Cheese<br>
+					<input name="Cheese" class="cheese" type="radio" value="Xtra Cheese">Xtra Cheese<br>
+					<input name="Cheese" class="cheese" type="radio" value="No Cheese">No Cheese<br>
+				</div>
+			</div>
+		</form>
+	</div>  
+<!--End Menu Selections--> 
+<br>
+<!--Place or Cancel order-->
+	<div class= "Orders">	
+		<input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order" style="font:20px bold";>
+			<br><br>
+	</div>				
+	<div id="cart">
+		<div id="showText"></div>
+		<br><br>
+		<div id="totalPrice"></div>
+	</div>
+	
+	
+		<script src="./final_drill_basic.js"></script>
+		
+		
+	</body>
+</html>
