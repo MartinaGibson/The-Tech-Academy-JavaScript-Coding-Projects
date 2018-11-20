@@ -2,15 +2,17 @@ function getReceipt() {
 	// This initializes our string so it can get passed from  
 	// function to function, growing line by line into a full receipt
 	var text1 = "<h3>You Ordered:</h3>";
+	var text2 = "<h2>Subtotal:</h2>";
 	var runningTotal = 0;
 	var sizeTotal = 0;
 	var selectedSize = 0;
 	var sizeArray = document.getElementsByClassName("size");
 	
+	
 	for (var i = 0; i < sizeArray.length; i++) {
 		if (sizeArray[i].checked) {
 			selectedSize = sizeArray[i].value;
-			text1 = text1+selectedSize+"<br>";
+			text1 = text1+selectedSize+"<br><br>";
 		}
 	}
 	
@@ -25,12 +27,16 @@ function getReceipt() {
 	}
 	
 	runningTotal = sizeTotal;
-	getMeat(runningTotal,text1); // All three of these variables will be passed on to each function
+	//sizeSub = sizeTotal;
+	//document.getElementById("subtotal").innerHTML = "$"+sizeSub+".00";
+	text2 = "$"+sizeTotal+".00<br>";
+
+	getMeat(runningTotal,text1,text2);//sizeSub); // All three of these variables will be passed on to each function
 
 	
 };
 
-function getMeat(runningTotal,_text1) {
+function getMeat(runningTotal,_text1,_text2) { //_sizeSub) {
 	var meatTotal= 0;
 	var selectedMeat = [];
 	var meatArray = document.getElementsByClassName("meats");
@@ -40,24 +46,29 @@ function getMeat(runningTotal,_text1) {
 	
 			selectedMeat.push(meatArray[j].value);
 			_text1 = _text1+meatArray[j].value+"<br>";
+		
 		}
 	}
 		
 	var meatCount = selectedMeat.length;
 	if (meatCount > 1) {
 		meatTotal = (meatCount - 1);
+		
 	} else {
 		meatTotal = 0;
 	}
-			
-	runningTotal = (runningTotal + meatTotal);
 	
-	getVeggie(runningTotal, _text1);
+	runningTotal = (runningTotal + meatTotal);
+	_text2 = _text2+"<br>Meats:<br>$"+meatTotal+".00<br>";
+	//document.getElementById("subtotal").innerHTML = "$"+_sizeSub+".00 <br>"+"$"+meatTotal+".00";
+	
+
+	getVeggie(runningTotal, _text1,_text2);//sizeSub,meatTotal);
 
 	
 };	
 
-function getVeggie(runningTotal,_text1) {
+function getVeggie(runningTotal,_text1,_text2) { //_sizeSub,,meatTotal) {
 	var veggieTotal =0;
 	var selectedVeggie = [];
 	var veggieArray = document.getElementsByClassName("veggie");
@@ -66,7 +77,7 @@ function getVeggie(runningTotal,_text1) {
 		if (veggieArray[v].checked) {
 			selectedVeggie.push(veggieArray[v].value);
 
-			_text1 = _text1+veggieArray[v].value+"<br>";
+			_text1 = _text1+"<br>"+veggieArray[v].value;
 		}
 	}
 	var veggieCount = selectedVeggie.length;
@@ -75,14 +86,16 @@ function getVeggie(runningTotal,_text1) {
 	} else {
 		veggieTotal = 0;
 	}
-		
-	runningTotal = (runningTotal + veggieTotal);	
 	
-	getCrust(runningTotal,_text1);
+	runningTotal = (runningTotal + veggieTotal);
+	_text2 = _text2+"<br>Veggies:<br>$"+veggieTotal+".00<br>"; 	
+	//document.getElementById("subtotal").innerHTML ="$"+_sizeSub+".00<br>"+"$"+meatTotal+".00<br>"+"$"+veggieTotal+".00<br>";
+	
+	getCrust(runningTotal,_text1,_text2);//_sizeSub,meatTotal,veggieTotal);
 
 };
 
-function getCrust(runningTotal,_text1) {
+function getCrust(runningTotal,_text1,_text2) {//_sizeSub,meatTotal,veggieTotal) {
 	var crustTotal = 0;
 	var selectedCrust = 0;
 	var crustArray = document.getElementsByClassName("crust");
@@ -90,7 +103,7 @@ function getCrust(runningTotal,_text1) {
 	for (var c = 0; c < crustArray.length; c++) {
 		if (crustArray[c].checked) {
 			selectedCrust = crustArray[c].value;
-			_text1 = _text1+selectedCrust+"<br>";	
+			_text1 = _text1+"<br><br>"+selectedCrust+"<br>";	
 		} 
 	}
 		
@@ -107,12 +120,16 @@ function getCrust(runningTotal,_text1) {
 	}
 		
 	runningTotal = (runningTotal + crustTotal);
+	_text2= _text2+"<br>Crust:<br>$"+crustTotal+".00<br>";
+	//document.getElementById("subtotal").innerHTML ="<h3>Subtotal:</h3><br>$"+_sizeSub+".00<br><br>"+"$"+meatTotal+".00<br><br>"+"$"+veggieTotal+".00<br><br>"+"$"+crustTotal+".00<br><br>";
 	
-	getSauce(runningTotal,_text1);
+	
+		
+	getSauce(runningTotal,_text1,_text2);
 
 };
 
-function getSauce(runningTotal,_text1) {
+function getSauce(runningTotal,_text1,_text2) {
 	var sauceTotal = 0;
 	var selectedSauce = 0;
 	var sauceArray = document.getElementsByClassName("sauce");
@@ -120,7 +137,7 @@ function getSauce(runningTotal,_text1) {
 	for (var s = 0; s < sauceArray.length; s++) {
 		if (sauceArray[s].checked) {
 			selectedSauce = sauceArray[s].value;
-			_text1 = _text1+selectedSauce+"<br>";	
+			_text1 = _text1+"<br>"+selectedSauce+"<br><br>";	
 		} 
 	}
 
@@ -133,13 +150,17 @@ function getSauce(runningTotal,_text1) {
 	} else if (selectedSauce === "No Sauce") {
 		sauceTotal = 0;
 	}
-		
+	
+	
 	runningTotal = (runningTotal + sauceTotal);
-	getCheese(runningTotal,_text1);
+	_text2 = _text2+"<br>Sauce:<br>$"+sauceTotal+".00<br>";
+	 
+	
+	getCheese(runningTotal,_text1,_text2);
 	
 };
 
-function getCheese(runningTotal,_text1){
+function getCheese(runningTotal,_text1,_text2){
 	var cheeseTotal;
 	var selectedCheese;
 	var cheeseArray = document.getElementsByClassName("cheese");
@@ -147,7 +168,7 @@ function getCheese(runningTotal,_text1){
 	for (var e = 0; e < cheeseArray.length; e++) {
 		if (cheeseArray[e].checked) {
 			selectedCheese = cheeseArray[e].value;
-			_text1 = _text1+selectedCheese+"<br>";
+			_text1 = _text1+selectedCheese+"<br><br>";
 		}
 	}
 			
@@ -160,9 +181,11 @@ function getCheese(runningTotal,_text1){
 	}	
 	
 	runningTotal = (runningTotal + cheeseTotal);
+	_text2 = _text2+"<br>Cheese:<br>$"+cheeseTotal+".00<br>"; 
 	
-	document.getElementById("totalPrice").innerHTML = "</h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";	
-	document.getElementById("showText").innerHTML = _text1;
+	document.getElementById("subtotal").innerHTML = "<br>"+_text2;
+	document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";	
+	document.getElementById("showText").innerHTML = "<strong>"+_text1+"</strong>";
 	
 };
 

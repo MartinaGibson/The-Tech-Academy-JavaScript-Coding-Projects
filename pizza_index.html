@@ -71,10 +71,10 @@
 			font-size:1em;
         }	
 		#totalPrice {
-			width:200px;
-			height:190px;
-			margin:0 auto;
-			float:right;
+			width:100px;
+			height:110px;
+			margin:200px 0px 200px 100px;
+			float:left;
 			font-size:28px;
 			text-align:left;
 			
@@ -88,17 +88,30 @@
 			color:rosybrown;
 			font-size:18px;
 			font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-			text-align: bottom;
+			text-align: left;
+			
+			
+		}
+		#subtotal {
+			width:200px;
+			height: 200px;
+			margin: 0 auto;
+			display:flex;
+			float:right;
+			color:rosybrown;
+			font-size:20px;
+			font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			text-align:justify;
 			
 			
 		}
 		#cart {
 			top:0;
 			margin:0px auto;
-			width:220px;
+			width:400px;
 			height:300px
 			display: flex;
-            block-size: 400px;
+            block-size: 500px;
             margin: 0 auto;
 			padding: 5px;
             background-color:rgba(30, 75, 36, 0.5);
@@ -186,12 +199,14 @@
 <br>
 <!--Place or Cancel order-->
 	<div class= "Orders">	
-		<input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order" style="font:20px bold";>
+		<input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order" style="font:20px bold">
 			<br><br>
 	</div>				
 	<div id="cart">
 		<div id="showText"></div>
 		<br><br>
+		<div id="subtotal">subtotal:</div>
+		<br><br><br><br><br><br><br>
 		<div id="totalPrice"></div>
 	</div>
 	
